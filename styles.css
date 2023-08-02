@@ -10,3 +10,28 @@ body {
   align-items: center;
   flex-direction: column;
 }
+#title{
+  font-size: 130px;
+  margin-bottom: 15px;
+}
+.input-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+}
+#input-element{
+  box-sizing: border-box;
+  padding: 4px;
+  border-radius: 4px;
+}
+#add-icon{
+  width: 30px;
+  cursor: pointer;
+}
+hr{
+  border: 0.5px solid darkgray;
+  width: 300px;
+  border-style: dashed;
+}
