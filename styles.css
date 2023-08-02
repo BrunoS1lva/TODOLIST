@@ -39,3 +39,10 @@ hr{
   width: 250px;
   border-style: dashed;
 }
+.new-elements{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+}

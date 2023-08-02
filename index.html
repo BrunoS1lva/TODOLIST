@@ -3,23 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CHECKLIST</title>
+    <title>TODO</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div id="container">
       <header>
-        <h1 id="title">CHECKLIST</h1>
+        <h1 id="title">TO DO LIST</h1>
       </header>
       <div class="input-container">
-        <form action="" class="form-container">
+        <form action="" class="form-container" method="post" onsubmit='return false'>
           <label for="input">
-            <input type="text" id="input-element" placeholder="Write here your goals" required>
+            <input type="text" name="input" id="input-element" placeholder="Write here your goals" required>
           </label>
           <button type="submit" id="add-btn">+</button>
         </form>
       </div>
       <hr />
+      <div class="new-elements">
+
+      </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
