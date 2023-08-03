@@ -1,20 +1,24 @@
-let addBtn = document.getElementById('add-btn');
-addBtn.addEventListener('click', goalsKeeper);
+let addBtn = document.getElementById("add-btn");
+addBtn.addEventListener("click", goalsKeeper);
 
-function goalsKeeper(){
-    let data = document.getElementById('input-element').value;
-    // console.log(data)
-    let newE = document.getElementsByClassName('new-elements'); //coso que cree para ver si puedo obtener el div donde voy a poner los nuevos elementos
-    document.write(data);
+function goalsKeeper() {
+  let data = document.getElementById("input-element").value;
+  console.log(data)
+
+  let newTask = document.createElement('p');
+  newTask.textContent= `${data}`;
+  console.log(newTask);
+  const newE = document.getElementById("new-elements");
+  newE.appendChild(newTask);
 }
 
-//Get form element
-// var form=document.getElementById("formId");
-// function submitForm(event){
-
-//Preventing page refresh
-//    event.preventDefault();
+//Código que copie de una pagina para evitar que la pagina se recargue cuando le doy a submit pero no funciona no se por qué
+// function submitForm(event) {
+//   event.preventDefault();
 // }
-
-//Calling a function during form submission.
+// let form = document.getElementsByClassName("form-container");
 // form.addEventListener('submit', submitForm);
+
+ //coso que cree para ver si puedo obtener el div donde voy a poner los nuevos elementos
+
+  // document.write(data);
