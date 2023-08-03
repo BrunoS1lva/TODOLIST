@@ -8,7 +8,7 @@ body {
   place-items: center;
 }
 #container{
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 500px;
 }
 #container,
@@ -54,11 +54,11 @@ hr {
   border-style: dashed;
 }
 #remaining-capsule{
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 #new-elements {
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 #completed-capsule{
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
