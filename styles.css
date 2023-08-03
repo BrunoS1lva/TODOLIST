@@ -3,46 +3,62 @@
 body {
   font-family: "Handjet", cursive;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
 }
-#container {
+#container{
+  border: 1px solid black;
+  width: 500px;
+}
+#container,
+#remaining-capsule,
+#new-elements,
+#completed-capsule {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 }
-#title{
+
+#title {
   font-size: 130px;
   margin-bottom: 15px;
 }
-.form-container{
+
+.form-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 350px;
 }
-#input-element{
+
+#input-element {
   box-sizing: border-box;
   padding: 4px;
   border-radius: 4px;
 }
-#add-btn{
+
+#add-btn {
   width: 35px;
   cursor: pointer;
   height: 35px;
   background-color: transparent;
-  border: 0; 
+  border: 0;
   font-size: 30px;
 }
-hr{
+
+hr {
   border: 0.5px solid darkgray;
   width: 250px;
   border-style: dashed;
 }
-.new-elements{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 350px;
+#remaining-capsule{
+  border: 1px solid red;
+}
+#new-elements {
+  border: 1px solid green;
+}
+#completed-capsule{
+  border: 1px solid blue;
 }
