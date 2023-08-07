@@ -3,13 +3,19 @@ addBtn.addEventListener("click", goalsKeeper);
 
 function goalsKeeper() {
   let data = document.getElementById("input-element").value;
-  console.log(data)
 
+  //Creating the element which I'll use to append
+  const newE = document.getElementById("new-elements");
+  //Creating the element of the img so I can append it to newE
+  let trashIcon = document.createElement('img');
+  trashIcon.src="https://img.icons8.com/quill/50/filled-trash.png";
+  newE.appendChild(trashIcon);
+  //creating the element for the text inside the button
   let newTask = document.createElement('p');
   newTask.textContent= `${data}`;
-  console.log(newTask);
-  const newE = document.getElementById("new-elements");
-  newE.appendChild(newTask);
+  newE.insertBefore(newTask, trashIcon)
+
+
 }
 
 //Código que copie de una pagina para evitar que la pagina se recargue cuando le doy a submit pero no funciona no se por qué

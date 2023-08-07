@@ -56,8 +56,14 @@ hr {
 #remaining-capsule{
   /* border: 1px solid red; */
 }
+#remaining-span, #completed-span{
+  font-weight: bold;
+  font-size: 25px;
+}
 #new-elements {
-  /* border: 1px solid green; */
+  display: grid;
+  grid-template-columns: auto 30px;
+  column-gap: 0;
 }
 #completed-capsule{
   /* border: 1px solid blue; */
