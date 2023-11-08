@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TODO</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1 id="title">TO DO LIST</h1>
+    </header>
+    <div class="input-container">
+      <form action="" class="form-container" method="post" onsubmit="return false">
+        <label for="input">
+          <input type="text" name="input" id="input-element" placeholder="Write here your goals" required />
+        </label>
+        <button type="submit" id="add-btn">+</button>
+      </form>
+    </div>
+
+    <div id="remaining-capsule">
+      <p>
+        <span id="remaining-span">REMAINING</span>
+      </p>
+      <hr />
+      <div id="new-elements">
+        <!-- new elements will be added in this div -->
+      </div>
+    </div>
+
+    <div id="completed-capsule">
+      <p>
+        <span id="completed-span">COMPLETED</span>
+      </p>
+      <hr />
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

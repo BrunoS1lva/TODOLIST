@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@600&family=Handjet:wght@300;500;900&family=Noto+Sans:wght@400;500;700&display=swap");
+
+body {
+  font-family: "Handjet", cursive;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+#container{
+  /* border: 1px solid black; */
+  width: 500px;
+}
+#container,
+#remaining-capsule,
+#new-elements,
+#completed-capsule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#title {
+  font-size: 130px;
+  margin-bottom: 15px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#input-element {
+  box-sizing: border-box;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+#add-btn {
+  width: 35px;
+  cursor: pointer;
+  height: 35px;
+  background-color: transparent;
+  border: 0;
+  font-size: 30px;
+}
+
+hr {
+  border: 0.5px solid darkgray;
+  width: 250px;
+  border-style: dashed;
+}
+#remaining-capsule{
+  /* border: 1px solid red; */
+}
+#remaining-span, #completed-span{
+  font-weight: bold;
+  font-size: 25px;
+}
+#new-elements {
+  display: grid;
+  grid-template-columns: auto 30px;
+  column-gap: 0;
+}
+#completed-capsule{
+  /* border: 1px solid blue; */
+}
