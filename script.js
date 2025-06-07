@@ -1,68 +1,81 @@
+const addBtn = document.getElementById("add-btn");
 const form = document.getElementById("task-form");
-const input = document.getElementById("task-input");
-const taskContainer = document.getElementById("new-elements");
-const remainingCapsule = document.getElementById("remaining-capsule");
+const remainingCapsule = document.getElementById('remaining-capsule');
+const newE = document.getElementById("new-elements");
+const inputElement = document.getElementById("input-element");
 
-form.addEventListener("submit", function (e) {
+document.addEventListener("DOMContentLoaded", loadTasks);
+form.addEventListener("submit", e => {
   e.preventDefault();
-  const taskText = input.value.trim();
-  if (!taskText) return;
-
-  const task = {
-    id: Date.now().toString(),
-    text: taskText
-  };
-
-  addTaskToDOM(task);
-  saveTask(task);
-  input.value = "";
+  addTask();
 });
 
-function addTaskToDOM(task) {
-  remainingCapsule.style.display = "flex";
+function addTask() {
+  const data = inputElement.value.trim();
+  if (!data) return;
 
-  const taskItem = document.createElement("div");
-  taskItem.classList.add("task-item");
-  taskItem.setAttribute("data-id", task.id);
+  createTaskElement(data);
+  saveTask(data);
 
-  const taskContent = document.createElement("p");
-  taskContent.classList.add("task-text");
-  taskContent.textContent = task.text;
+  inputElement.value = '';
+  remainingCapsule.hidden = false;
+}
 
-  const deleteIcon = document.createElement("img");
-  deleteIcon.src = "https://img.icons8.com/quill/50/filled-trash.png";
-  deleteIcon.classList.add("task-delete");
-  deleteIcon.addEventListener("click", () => {
-    taskItem.remove();
-    removeTask(task.id);
-    if (taskContainer.children.length === 0) {
-      remainingCapsule.style.display = "none";
+function createTaskElement(taskText) {
+  const task = document.createElement('p');
+  task.style.fontSize = '25px';
+  task.textContent = taskText;
+
+  const trashIcon = document.createElement('button');
+  trashIcon.setAttribute('aria-label', 'Eliminar tarea');
+  trashIcon.style.background = 'none';
+  trashIcon.style.border = 'none';
+  trashIcon.style.cursor = 'pointer';
+  trashIcon.style.width = '30px';
+  trashIcon.style.height = '30px';
+  trashIcon.style.padding = '0';
+  trashIcon.style.marginLeft = '10px';
+
+  trashIcon.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="30" height="30">
+      <polyline points="3 6 5 6 21 6"></polyline>
+      <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+      <path d="M10 11v6"></path>
+      <path d="M14 11v6"></path>
+      <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path>
+    </svg>
+  `;
+
+  trashIcon.addEventListener('click', () => {
+    newE.removeChild(task);
+    newE.removeChild(trashIcon);
+    removeTaskFromStorage(taskText);
+    if (newE.children.length === 0) {
+      remainingCapsule.hidden = true;
     }
   });
 
-  taskItem.appendChild(taskContent);
-  taskItem.appendChild(deleteIcon);
-  taskContainer.appendChild(taskItem);
+  newE.appendChild(task);
+  newE.appendChild(trashIcon);
 }
 
 function saveTask(task) {
-  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   tasks.push(task);
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-function removeTask(id) {
-  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-  tasks = tasks.filter((task) => task.id !== id);
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+function removeTaskFromStorage(task) {
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  tasks = tasks.filter(t => t !== task);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 function loadTasks() {
-  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   if (tasks.length > 0) {
-    remainingCapsule.style.display = "flex";
-    tasks.forEach(addTaskToDOM);
+    remainingCapsule.hidden = false;
+    tasks.forEach(task => createTaskElement(task));
   }
 }
-
-loadTasks();
