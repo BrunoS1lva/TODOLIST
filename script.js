@@ -1,81 +1,99 @@
-const addBtn = document.getElementById("add-btn");
-const form = document.getElementById("task-form");
+const form = document.getElementById('task-form');
+const input = document.getElementById('input-element');
 const remainingCapsule = document.getElementById('remaining-capsule');
-const newE = document.getElementById("new-elements");
-const inputElement = document.getElementById("input-element");
+const completedCapsule = document.getElementById('completed-capsule');
+const newElements = document.getElementById('new-elements');
+const completedElements = document.getElementById('completed-elements');
 
-document.addEventListener("DOMContentLoaded", loadTasks);
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  addTask();
-});
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-function addTask() {
-  const data = inputElement.value.trim();
-  if (!data) return;
-
-  createTaskElement(data);
-  saveTask(data);
-
-  inputElement.value = '';
-  remainingCapsule.hidden = false;
+function saveTasks() {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-function createTaskElement(taskText) {
-  const task = document.createElement('p');
-  task.style.fontSize = '25px';
-  task.textContent = taskText;
+function renderTasks() {
+  newElements.innerHTML = '';
+  completedElements.innerHTML = '';
 
-  const trashIcon = document.createElement('button');
-  trashIcon.setAttribute('aria-label', 'Eliminar tarea');
-  trashIcon.style.background = 'none';
-  trashIcon.style.border = 'none';
-  trashIcon.style.cursor = 'pointer';
-  trashIcon.style.width = '30px';
-  trashIcon.style.height = '30px';
-  trashIcon.style.padding = '0';
-  trashIcon.style.marginLeft = '10px';
+  const remainingTasks = tasks.filter(task => !task.completed);
+  const completedTasks = tasks.filter(task => task.completed);
 
-  trashIcon.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="30" height="30">
-      <polyline points="3 6 5 6 21 6"></polyline>
-      <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
-      <path d="M10 11v6"></path>
-      <path d="M14 11v6"></path>
-      <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path>
-    </svg>
-  `;
+  if (remainingTasks.length === 0) {
+    remainingCapsule.classList.add('hidden');
+  } else {
+    remainingCapsule.classList.remove('hidden');
+  }
 
-  trashIcon.addEventListener('click', () => {
-    newE.removeChild(task);
-    newE.removeChild(trashIcon);
-    removeTaskFromStorage(taskText);
-    if (newE.children.length === 0) {
-      remainingCapsule.hidden = true;
-    }
+  if (completedTasks.length === 0) {
+    completedCapsule.classList.add('hidden');
+  } else {
+    completedCapsule.classList.remove('hidden');
+  }
+
+  remainingTasks.forEach(task => {
+    const taskItem = createTaskElement(task);
+    newElements.appendChild(taskItem);
   });
 
-  newE.appendChild(task);
-  newE.appendChild(trashIcon);
+  completedTasks.forEach(task => {
+    const taskItem = createTaskElement(task);
+    completedElements.appendChild(taskItem);
+  });
 }
 
-function saveTask(task) {
-  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  tasks.push(task);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+function createTaskElement(task) {
+  const taskItem = document.createElement('div');
+  taskItem.className = 'task-item' + (task.completed ? ' completed' : '');
+  taskItem.dataset.id = task.id;
+
+  const taskText = document.createElement('span');
+  taskText.className = 'task-text';
+  taskText.textContent = task.text;
+  taskText.title = "Click to toggle completion";
+  taskText.addEventListener('click', () => toggleTask(task.id));
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.className = 'delete-btn';
+  deleteBtn.setAttribute('aria-label', 'Delete task');
+  deleteBtn.addEventListener('click', () => deleteTask(task.id));
+
+  taskItem.appendChild(taskText);
+  taskItem.appendChild(deleteBtn);
+
+  return taskItem;
 }
 
-function removeTaskFromStorage(task) {
-  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  tasks = tasks.filter(t => t !== task);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+function toggleTask(id) {
+  tasks = tasks.map(task => 
+    task.id === id ? {...task, completed: !task.completed} : task
+  );
+  saveTasks();
+  renderTasks();
 }
 
-function loadTasks() {
-  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  if (tasks.length > 0) {
-    remainingCapsule.hidden = false;
-    tasks.forEach(task => createTaskElement(task));
-  }
+function deleteTask(id) {
+  tasks = tasks.filter(task => task.id !== id);
+  saveTasks();
+  renderTasks();
 }
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const text = input.value.trim();
+  if (text === '') return;
+
+  const newTask = {
+    id: Date.now(),
+    text,
+    completed: false,
+  };
+
+  tasks.push(newTask);
+  saveTasks();
+  renderTasks();
+  input.value = '';
+  input.focus();
+});
+
+// Inicializa la app
+renderTasks();
