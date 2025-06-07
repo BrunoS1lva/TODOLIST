@@ -1,11 +1,11 @@
-# ✅ ToDo List – Lista de tareas con JavaScript
+# ✅ To-Do List – Lista de tareas con JavaScript
 
 Aplicación web básica que permite crear, completar y eliminar tareas. Este proyecto está enfocado en practicar conceptos fundamentales de desarrollo frontend como manejo del DOM, eventos en JavaScript y estructura de interfaces limpias y usables.
 
 📌 Ideal para quienes están aprendiendo JavaScript Vanilla y buscan aplicar lógica funcional y estructuración simple.
 
 ## 🌐 Demo en vivo
-🔗 https://brunos1lva.github.io/TODOLIST/
+[🔗 Ver en GitHub Pages](https://brunos1lva.github.io/TODOLIST/)
 
 ## 🚀 Funcionalidades principales
 
@@ -21,6 +21,8 @@ Aplicación web básica que permite crear, completar y eliminar tareas. Este pro
 - CSS3
 - JavaScript (ES6)
 - Git y GitHub
+
+## 💾 Guardado local con localStorage
 
 ## 🗂️ Estructura del proyecto
 
