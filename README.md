@@ -1,14 +1,16 @@
 # ✅ ToDo List – Lista de tareas con JavaScript
 
-Aplicación web sencilla que permite crear, completar y eliminar tareas. Desarrollada con HTML, CSS y JavaScript Vanilla, es un proyecto orientado a la práctica de manipulación del DOM, eventos y lógica de interacción básica en el navegador.
+Aplicación web básica que permite crear, completar y eliminar tareas. Este proyecto está enfocado en practicar conceptos fundamentales de desarrollo frontend como manejo del DOM, eventos en JavaScript y estructura de interfaces limpias y usables.
 
-## 🚀 Funcionalidades
+📌 Ideal para quienes están aprendiendo JavaScript Vanilla y buscan aplicar lógica funcional y estructuración simple.
 
-- Agregar nuevas tareas
-- Marcar tareas como completadas
-- Eliminar tareas individuales
-- Interfaz clara y responsive
-- Persistencia de datos con localStorage (si aplica)
+## 🚀 Funcionalidades principales
+
+- ✅ Agregar nuevas tareas
+- 🔁 Marcar tareas como completadas
+- 🗑️ Eliminar tareas
+- 💾 Guardado local con localStorage (si lo aplicaste)
+- 📱 Responsive para móviles y escritorio
 
 ## 🧠 Tecnologías utilizadas
 
@@ -17,37 +19,33 @@ Aplicación web sencilla que permite crear, completar y eliminar tareas. Desarro
 - JavaScript (ES6)
 - Git y GitHub
 
-## 🖥️ Demo en vivo
+## 🗂️ Estructura del proyecto
 
-👉 [Ver demo en GitHub Pages](https://tuusuario.github.io/nombre-del-repo/)  
-*(Reemplazar con el link real cuando lo publiques)*
-
-## 📁 Estructura del proyecto
+```plaintext
 todolist/
-│
-├── index.html # Estructura del sitio
-├── style.css # Estilos personalizados
-└── script.js # Lógica de la aplicación
+├── index.html         # Estructura principal del sitio
+├── style.css          # Estilos personalizados
+└── script.js          # Lógica de interacción y manejo del DOM
+```
+## 📚 Lecciones aprendidas
 
-## 🧩 Lecciones aprendidas
+- Uso de `addEventListener` y eventos de formulario
+- Manipulación del DOM con `querySelector`, `appendChild`, `remove()`
+- Control de flujo con condicionales y bucles
+- Separación de lógica, estilo y estructura
+- Despliegue de proyectos simples con GitHub Pages
 
-- Manejo de eventos en JavaScript (click, submit, etc.)
-- Manipulación del DOM
-- Trabajo con arrays y métodos funcionales
-- Organización básica del código en archivos separados
-- Uso de Git y despliegue en GitHub Pages
+## ✨ Mejoras posibles
 
-## 🔧 Posibles mejoras futuras
+- Filtros: Todas | Completadas | Pendientes
+- Edición en línea de tareas
+- Modo oscuro
+- Refactorización con componentes o modularización
 
-- Filtros para ver tareas completadas o pendientes
-- Edición de tareas existentes
-- Mejora visual con frameworks CSS como Tailwind o Bootstrap
-- Animaciones sutiles para mejorar la UX
+## 👨‍💻 Autor
 
-## 📄 Licencia
-
-Este proyecto es de uso libre para fines educativos. Si querés reutilizarlo o mejorarlo, ¡adelante!
+Hecho con ❤️ por [Bruno Silva](https://github.com/BrunoS1lva)  
+Este proyecto es de uso libre para aprendizaje o referencias.
 
 ---
 
-Hecho con 💻 por [Bruno Silva](https://github.com/BrunoS1lva)
