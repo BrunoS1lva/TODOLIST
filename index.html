@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TODO</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div id="container">
-      <header>
-        <h1 id="title">TO DO LIST</h1>
-        <h3>Pretty simple, right?</h3>
-      </header>
-      <div class="input-container">
-        <form id="task-form" class="form-container">
-          <input
-            type="text"
-            id="task-input"
-            placeholder="Write here your goals"
-            required
-          />
-          <button type="submit" id="add-btn">+</button>
-        </form>
-      </div>
-      <div id="remaining-capsule">
-        <p><span id="remaining-span">REMAINING</span></p>
-        <hr />
-        <div id="new-elements"></div>
-      </div>
-      <div id="completed-capsule">
-        <p><span id="completed-span">COMPLETED</span></p>
-        <hr />
-      </div>
-    </div>
-    <script src="script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ToDo List</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="container" role="main" aria-labelledby="title">
+    <header>
+      <h1 id="title">TO DO LIST</h1>
+      <p class="subtitle">Pretty simple, right?</p>
+    </header>
+    <section class="input-container" aria-label="Formulario para agregar tareas">
+      <form id="task-form" class="form-container" novalidate>
+        <label for="input-element" class="visually-hidden">Agregar tarea</label>
+        <input
+          type="text"
+          id="input-element"
+          name="task"
+          placeholder="Write here your goals"
+          required
+          autocomplete="off"
+          aria-required="true"
+        />
+        <button type="submit" id="add-btn" aria-label="Agregar tarea">+</button>
+      </form>
+    </section>
+
+    <section id="remaining-capsule" aria-live="polite" aria-label="Tareas restantes" hidden>
+      <h2 id="remaining-span">REMAINING</h2>
+      <hr />
+      <div id="new-elements"></div>
+    </section>
+
+    <section id="completed-capsule" aria-live="polite" aria-label="Tareas completadas" hidden>
+      <h2 id="completed-span">COMPLETED</h2>
+      <hr />
+      <!-- Aquí podrías agregar tareas completadas en el futuro -->
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
 </html>
