@@ -2,8 +2,6 @@
 
 Aplicación web básica que permite crear, completar y eliminar tareas. Este proyecto está enfocado en practicar conceptos fundamentales de desarrollo frontend como manejo del DOM, eventos en JavaScript y estructura de interfaces limpias y usables.
 
-📌 Ideal para quienes están aprendiendo JavaScript Vanilla y buscan aplicar lógica funcional y estructuración simple.
-
 ## 🌐 Demo en vivo
 [🔗 Ver en GitHub Pages](https://brunos1lva.github.io/TODOLIST/)
 
@@ -12,8 +10,8 @@ Aplicación web básica que permite crear, completar y eliminar tareas. Este pro
 - ✅ Agregar nuevas tareas
 - 🔁 Marcar tareas como completadas
 - 🗑️ Eliminar tareas
-- 💾 Guardado local con localStorage (si lo aplicaste)
-- 📱 Responsive para móviles y escritorio
+- 💾 Guardado local con localStorage 
+- 📱 Diseño responsive
 
 ## 🧠 Tecnologías utilizadas
 
@@ -21,8 +19,6 @@ Aplicación web básica que permite crear, completar y eliminar tareas. Este pro
 - CSS3
 - JavaScript (ES6)
 - Git y GitHub
-
-## 💾 Guardado local con localStorage
 
 ## 🗂️ Estructura del proyecto
 
@@ -53,4 +49,3 @@ Hecho con ❤️ por [Bruno Silva](https://github.com/BrunoS1lva)
 Este proyecto es de uso libre para aprendizaje o referencias.
 
 ---
-
