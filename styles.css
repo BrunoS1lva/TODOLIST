@@ -1,19 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Geologica:wght@600&family=Handjet:wght@300;500;900&family=Noto+Sans:wght@400;500;700&display=swap");
 
+::root{
+  
+}
 body {
   font-family: "Handjet", cursive;
   margin: 0;
   min-height: 100vh;
   display: grid;
   place-items: center;
-  background-color: #f9f9f9;
+  background-color: #f0ecb5;
   padding: 20px;
 }
 
 #container {
   width: 100%;
   max-width: 500px;
-  background: white;
+  background: #f8e800;
   padding: 20px 30px;
   box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
   border-radius: 8px;
@@ -23,7 +26,7 @@ h3 {
   text-align: center;
   font-size: 15px;
   margin-bottom: 30px;
-  color: #666;
+  /* color: #666; */
 }
 
 #container,
@@ -61,7 +64,7 @@ h3 {
 
 #input-element:focus {
   outline: none;
-  border-color: #0077ff;
+  border-color: black;
 }
 
 #add-btn {
@@ -79,12 +82,12 @@ h3 {
   background-color: #005fcc;
 }
 
-hr {
+/* hr {
   border: 0.5px solid darkgray;
   width: 100%;
   border-style: dashed;
   margin: 10px 0 20px 0;
-}
+} */
 
 #remaining-span,
 #completed-span {
