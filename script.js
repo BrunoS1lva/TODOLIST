@@ -95,5 +95,8 @@ form.addEventListener('submit', e => {
   input.focus();
 });
 
+
+//mejorar este codigo
+
 // Inicializa la app
 renderTasks();
